@@ -1,58 +1,18 @@
-<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable type="KIND_SpriteKind" id="[nfzK@Q-4|*lKf}|(d/A">Player</variable><variable type="KIND_SpriteKind" id="Pe#lDb-UPbyH=aRt!4ie">Projectile</variable><variable type="KIND_SpriteKind" id="-d@(wxq{8V`)/a!30m_o">Food</variable><variable type="KIND_SpriteKind" id="L]}N*X.k`_paF.?yvTe(">Enemy</variable><variable id="+#,x86V@Y`zyGkP_wqr:">mySprite</variable><variable id=",uRHxT:kDLc6%5(u_Bm;">weather prediction</variable><variable id="iWT;sT/m(K{cz_TF4:J}">weather effects</variable><variable id="7U]z.(v)Iv:c$aE9Dm./">mySprite2</variable></variables><block type="pxt-on-start" id="(.RB*SGg/ptJTCVnNF$Q" x="0" y="0"><statement name="HANDLER"><block type="variables_set" id="u]v5/Hvc2Dl$uWBLy)LR"><field name="VAR" id=",uRHxT:kDLc6%5(u_Bm;">weather prediction</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="gameaskforstring" id="!t[)SKP-v#(O*nDq]lQ2"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="message"><shadow type="text" id="]eCT[AvNmuD%PTP!D$T4"><field name="TEXT">What is your weather prediction?</field></shadow></value></block></value><next><block type="gameSplash" id="VUp0vp`t/4}{/1T]lD#r"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="title"><shadow type="text"><field name="TEXT"/></shadow><block type="text_join" id="2-FZ=cskl0x-9#W@v%oZ"><mutation items="2"/><value name="ADD0"><shadow type="text" id="8Xd@(U]AbekZ%-:mFuR*"><field name="TEXT">it is going to be...</field></shadow></value><value name="ADD1"><shadow type="text"><field name="TEXT">World</field></shadow><block type="variables_get" id="whEx047br|||r)?~0U2C"><field name="VAR" id=",uRHxT:kDLc6%5(u_Bm;">weather prediction</field></block></value></block></value><next><block type="controls_if" id="J|EoU2Aj/Rqi{JRZ/usS"><mutation else="1"/><value name="IF0"><shadow type="logic_boolean"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="7ZgNcT921i9`LaYuz@cg"><field name="OP">EQ</field><value name="A"><shadow type="text" id="8)}GH/sQlQ;Jzn8#p%N`"><field name="TEXT">sunny</field></shadow></value><value name="B"><shadow type="text"><field name="TEXT"/></shadow><block type="variables_get" id="z)A61qi4Q_LMl(Z9uEY^"><field name="VAR" id=",uRHxT:kDLc6%5(u_Bm;">weather prediction</field></block></value></block></value><statement name="DO0"><block type="gameSplash" id="PO(:L6ZSv:yb/=tI)%3`"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="title"><shadow type="text" id="j:E[1q68Ng^Rm!OH0=82"><field name="TEXT">correct!</field></shadow></value><next><block type="particlesStartScreenAnimation" id="J|zyLZ0,ZT7FW=!]CD.H"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="1" _input_init="true"></mutation><field name="effect">effects.clouds</field><value name="duration"><shadow type="timePicker" id="sy+z!|UtY8i`si^*2cG#"><field name="ms">5000</field></shadow></value><next><block type="variables_set" id="[Y,|rpo/16fGT`(^EM6:"><field name="VAR" id="+#,x86V@Y`zyGkP_wqr:">mySprite</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="AS?46i)23DHG/:N-Fk7u"><value name="img"><shadow type="screen_image_picker" id="duvQKrq4AXsMh%yb:2Jx"><field name="img">img`
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . 2 5 f . . . 5 . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . 2 2 5 f . . 2 5 f . . . . . . . 5 f . . . . . . . 
-. . . . . f f f . . . . . 2 2 5 5 f . 2 2 5 f . . . . . 2 2 5 f . . . . . . . 
-. . . . . 5 5 f f . . . . 2 5 5 5 f . 2 5 5 f . . . . 2 2 5 5 f . . . . . . . 
-. . . . . 2 5 5 f . . . . 4 5 5 f f . 4 5 5 f f . . 4 2 5 5 f f . . . . . . . 
-. . . . . 2 2 5 f f f f . 4 5 5 f . 4 4 5 5 5 f . 4 4 5 5 5 f . . . . . . . . 
-. . . . . 2 2 5 5 5 5 f . 4 5 5 f . 4 5 5 5 5 f . 4 5 5 5 f f . . . . . . . . 
-. . . . . . 2 2 5 5 4 f f 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 f . . . . . . . . . 
-. . . . . . . 4 5 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 f . . . . . . . . . 
-. . . . . . . 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 4 2 2 2 2 . . 
-. . . . . . . . 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-. . . . . . . f f f 5 5 5 5 f f f 5 5 5 5 5 5 5 f f f 5 5 5 5 5 5 5 f f f . . 
-. f f f f f f 5 5 5 5 5 5 f 4 2 2 5 5 5 5 5 5 f 4 2 2 5 5 5 5 5 f f f . . . . 
-. 5 5 5 5 5 5 5 f f f f f f 1 2 2 f f f f f f f 1 2 2 f 5 f f f f . . . . . . 
-. 2 2 2 4 4 5 5 f 5 5 5 5 f 1 2 2 f 5 5 5 5 5 f 1 2 2 f 5 4 4 4 4 4 2 2 . . . 
-. . . . . 4 4 4 4 5 5 5 5 f f f f f 5 5 2 5 5 f f f f f 5 5 5 5 5 5 5 2 2 2 . 
-. . . . . . f f 4 4 5 5 5 5 5 5 5 5 5 5 2 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
-. . . f f f f 5 5 4 5 5 5 5 5 5 5 5 5 5 5 2 5 5 5 5 5 5 5 5 5 5 5 5 f f f f . 
-. . f f 5 5 5 5 5 4 5 5 5 5 5 5 5 5 5 5 2 2 5 5 5 5 5 5 5 4 4 4 f f f . . . . 
-. . 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 2 2 . . . . 
-. . 2 2 2 5 5 5 5 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 2 2 . . . 
-. . . . 2 2 4 4 4 4 4 5 5 5 5 5 5 2 2 2 2 2 2 2 2 2 5 5 5 f f f 5 5 5 5 5 . . 
-. . . . . f f f 5 5 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 f f f f f f . . 
-. . . . f f 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 4 . . . . . . . 
-. . f f f 5 5 5 5 5 5 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 f f 5 5 5 4 4 . . . . . . 
-. . 5 5 5 5 5 5 4 4 4 4 5 5 5 4 4 5 5 4 4 4 4 4 5 4 . f 5 5 5 5 4 . . . . . . 
-. . 2 2 2 2 2 4 4 . . f 5 5 5 5 4 4 4 4 f f 5 5 5 4 . f f 5 5 5 4 . . . . . . 
-. . . . . . . . . . . f f 5 5 5 4 4 4 4 . f 5 5 5 4 . . f 5 5 5 4 . . . . . . 
-. . . . . . . . . . . . f 5 5 5 4 . . . . f 5 5 5 4 . . f f 5 5 2 . . . . . . 
-. . . . . . . . . . . . f 5 5 5 4 . . . . f 5 5 4 4 . . . f f 5 2 . . . . . . 
-. . . . . . . . . . . . f f 5 2 4 . . . . f 5 2 4 . . . . . f 5 2 . . . . . . 
-. . . . . . . . . . . . . f 5 2 . . . . . f 5 2 . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . f 5 2 . . . . . f 5 2 . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-`</field></shadow></value><value name="kind"><shadow type="spritekind" id="/dEV~BP?Ajz:`m/c;,;/"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="camerashake" id="O:u%X(4m/%1Q.|_PuiI9"><value name="amplitude"><shadow type="math_number_minmax" id="FDcczohf@|LiSa%W+GuG"><mutation min="1" max="8" label="Amplitude" precision="0"/><field name="SLIDER">8</field></shadow></value><value name="duration"><shadow type="timePicker" id="`aPrzmChP6b9FEG_1T*V"><field name="ms">5000</field></shadow></value></block></next></block></next></block></next></block></statement><statement name="ELSE"><block type="particlesStartScreenAnimation" id="qYTM.D.0)5,JSfQ)+Xuu"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="1" _input_init="true"></mutation><field name="effect">effects.blizzard</field><value name="duration"><shadow type="timePicker" id="DrMFMQ$HkueJuEag/eG,"><field name="ms">5000</field></shadow></value><next><block type="gameSplash" id="o~9km4z/C*{dkQMFPqB("><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="title"><shadow type="text" id=")hL,xNs~*_a3!Xx8_{}j"><field name="TEXT">...</field></shadow></value><next><block type="gameSplash" id=";?QT:O3-;0hQpcLh{?K)"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="title"><shadow type="text" id="e0FlQ)H~l-V=$yXC:3o`"><field name="TEXT">wrong!</field></shadow></value><next><block type="variables_set" id="^fbAkbAD(eMpp:(Ii^mp"><field name="VAR" id="+#,x86V@Y`zyGkP_wqr:">mySprite</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="!h+A;M5oC(tOSest_YCl"><value name="img"><shadow type="screen_image_picker" id="=~u-/cNK%ijP+|X.,LGO"><field name="img">img`
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-1 1 1 1 8 1 1 1 1 1 1 1 8 1 1 1 
-1 1 1 2 1 1 1 1 1 1 2 1 1 1 1 1 
-1 1 1 2 1 1 1 1 1 1 2 1 1 2 1 1 
-1 1 1 2 1 2 1 1 1 1 1 1 1 3 1 1 
-1 1 1 1 1 2 1 1 1 1 1 1 1 2 1 1 
-1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-8 8 8 8 1 1 8 8 8 8 8 1 1 8 8 8 
-8 2 f 8 8 8 8 2 f 2 8 8 8 8 f 8 
-8 1 f 2 f 1 f 2 f 1 f 2 f 1 f 8 
-8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 
-`</field></shadow></value><value name="kind"><shadow type="spritekind" id="`Bf,*`K1gqn,?0_O/SaN"><field name="MEMBER">Player</field></shadow></value></block></value></block></next></block></next></block></next></block></statement></block></next></block></next></block></statement></block></xml>
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="+XzbC{yimk5Z@bvLi1lW">Question</variable><variable id="C5jg@is%x+`PEq?d}!#u">mySprite</variable><variable id=":8@pZhT`fV2tiW,[05G~">x</variable><variable type="KIND_SpriteKind" id="#^[c]/T1P339|(P-V^-O">Player</variable><variable type="KIND_SpriteKind" id="5psB^7k1ndw}uRi-M4Rz">Projectile</variable><variable type="KIND_SpriteKind" id="-ZaSu:jVBgh}8xZqfCjp">Food</variable><variable type="KIND_SpriteKind" id="J|oCxsm:@8^j7a1q24[1">Enemy</variable></variables><block type="pxt-on-start" id="f%4(KYc|y1Mq}x{eOQZ*" x="0" y="0"><statement name="HANDLER"><block type="variables_set" id="VJAx(wTB8._cO?shdf%f"><field name="VAR" id="+XzbC{yimk5Z@bvLi1lW">Question</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="gameaskforstring" id="wF9G7Nv:%Zu}H`RNiO|~"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="message"><shadow type="text" id="4gP%4RJ*YWtH!2c_-TvS"><field name="TEXT">What is your weather prediction?</field></shadow></value></block></value><next><block type="gameSplash" id="MC7f!||b7H1J!FB4*a0["><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="title"><block type="text_join" id="T1YIHp5bUCQg=s^f(IP@"><mutation items="2"/><value name="ADD0"><shadow type="text" id="NM7Osqn.R*`aV{tK$5%w"><field name="TEXT">Your weather prediction is</field></shadow></value><value name="ADD1"><shadow type="text"><field name="TEXT"/></shadow><block type="variables_get" id="XI~!A6b/(@g9`8dG~p{i"><field name="VAR" id="+XzbC{yimk5Z@bvLi1lW">Question</field></block></value></block></value><next><block type="variables_set" id="(F`#J{3:aU))XaSqi~{a"><field name="VAR" id="C5jg@is%x+`PEq?d}!#u">mySprite</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="Rt}%`bu+*LP}^OVXGt]8"><value name="img"><shadow type="screen_image_picker" id="W=1RIu!cZ4~51Q:7aX9;"><field name="img">img`
+. . . . . . . . . . b 5 b . . . 
+. . . . . . . . . b 5 b . . . . 
+. . . . . . b b b b b b . . . . 
+. . . . . b b 5 5 5 5 5 b . . . 
+. . . . b b 5 d 1 f 5 d 4 c . . 
+. . . . b 5 5 1 f f d d 4 4 4 b 
+. . . . b 5 5 d f b 4 4 4 4 b . 
+. . . b d 5 5 5 5 4 4 4 4 b . . 
+. . b d d 5 5 5 5 5 5 5 5 b . . 
+. b d d d d 5 5 5 5 5 5 5 5 b . 
+b d d d b b b 5 5 5 5 5 5 5 b . 
+c d d b 5 5 d c 5 5 5 5 5 5 b . 
+c b b d 5 d c d 5 5 5 5 5 5 b . 
+. b 5 5 b c d d 5 5 5 5 5 d b . 
+b b c c c d d d d 5 5 5 b b . . 
+. . . c c c c c c c c b b . . . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="/2_zGeM.XSU22O|^j$J|"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="variables_set" id="DhQ!p9030$m;X|tc.OT-"><field name="VAR" id=":8@pZhT`fV2tiW,[05G~">x</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="device_random" id="_|.Y3Fyg2w+6U(xxYbaM"><value name="min"><shadow type="math_number" id="n=CwdU4{?dL9ZaJ[*[|w"><field name="NUM">0</field></shadow></value><value name="limit"><shadow type="math_number" id="/M,Zypr-Qj/0{GRt/tL]"><field name="NUM">2</field></shadow></value></block></value><next><block type="controls_if" id="D|!7KjCHA`TrBEX%N*~Y"><mutation else="1"/><value name="IF0"><shadow type="logic_boolean"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="eZHDgU9wxpf:u3n4[yu]"><field name="OP">EQ</field><value name="A"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="variables_get" id="rR;@G6*x6d):U,/ms/))"><field name="VAR" id=":8@pZhT`fV2tiW,[05G~">x</field></block></value><value name="B"><shadow type="math_number" id="{.u2d{{GSqbmU;VqF3.a"><field name="NUM">0</field></shadow></value></block></value><statement name="DO0"><block type="particlesStartScreenAnimation" id="5,BrJkix.^-x56J`]axj"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><field name="effect">effects.confetti</field><next><block type="spritesay" id="p5Q{KfiGPG::D7.(KLIS"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="sprite"><block type="variables_get" id="xT+uGTodhKeO6bkt;~IY"><field name="VAR" id="C5jg@is%x+`PEq?d}!#u">mySprite</field></block></value><value name="text"><shadow type="text" id="JnRx)#Uj|(|^XU22Q%1z"><field name="TEXT">Rain</field></shadow></value></block></next></block></statement><statement name="ELSE"><block type="particlesStartScreenAnimation" id=";+nH!Wk{Y#WRlon6.+No"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><field name="effect">effects.hearts</field><next><block type="spritesay" id="J|?N__E$NvwoM5Sdu1jO"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="sprite"><block type="variables_get" id="^_~?7ux_Q:izfJx;MrGL"><field name="VAR" id="C5jg@is%x+`PEq?d}!#u">mySprite</field></block></value><value name="text"><shadow type="text" id="?hXlA=d)EgR_]1XSlYyQ"><field name="TEXT">Bad Weather</field></shadow></value></block></next></block></statement></block></next></block></next></block></next></block></next></block></statement></block></xml>
